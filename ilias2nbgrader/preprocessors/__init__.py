@@ -3,7 +3,6 @@ from .createfolderstructure import CreateFolderStructure
 from .renamenotebooks import RenameNotebooks
 from .addextrafiles import AddExtraFiles
 from .deletetempfolders import DeleteTempFolders
-from .groupbygrader import GroupByGrader
 from .restructuresubmission import RestructureSubmission
 from .extractfeedback import ExtractFeedback
 from .extractassignmentinfo import ExtractAssignmentInfo
