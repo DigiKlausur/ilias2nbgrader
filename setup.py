@@ -15,7 +15,8 @@ setup(
     author_email='tim.metzler@h-brs.de',
     packages=find_packages(exclude=('tests', 'docs')),
     install_requires=[
-        "fuzzywuzzy"
+        "fuzzywuzzy",
+        "python-Levenshtein"
     ],
     include_package_data = True,
     zip_safe=False
