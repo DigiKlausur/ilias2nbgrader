@@ -7,11 +7,13 @@ from ..preprocessors import *
 class SubmissionConverter(Converter):
     
     preprocessors = List([
+        ExtractAssignmentInfo,
         Extract,
         CreateFolderStructure,
         RenameNotebooks,
         AddExtraFiles,
         RestructureSubmission,
+        MoveToSubmitted,
         DeleteTempFolders
     ], help='List of preprocessors for the converter')
     
