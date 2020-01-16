@@ -1,7 +1,6 @@
 from fuzzywuzzy import fuzz
 from .preprocessor import Preprocessor
 import os
-import numpy as np
 import glob
 
 class RenameNotebooks(Preprocessor):
@@ -24,7 +23,7 @@ class RenameNotebooks(Preprocessor):
     def get_matches(self, file, files):
         matches = [f for f in files if f[-1] == 'ipynb']
         sims = [fuzz.ratio(file, m[1]) for m in matches]
-        best = list(np.argsort(sims)[::-1])
+        best = sorted(range(len(sims)), key=sims[::-1].__getitem__)#list(np.argsort(sims)[::-1])
         matches = list(map(lambda i: matches[i], best))
         sims = list(map(lambda i: sims[i], best))
         return matches, sims 
