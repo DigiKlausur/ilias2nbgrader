@@ -1,4 +1,3 @@
-import glob
 import os
 import zipfile
 from .preprocessor import Preprocessor
@@ -19,7 +18,5 @@ class ZipFeedback(Preprocessor):
                     src = os.path.join(root, file)
                     arcname = os.path.join(os.path.splitext(resources['feedback_zip'])[0], os.path.relpath(src, start=self.src))
                     zf.write(src, arcname)
-
-
         
         return resources['path'], resources

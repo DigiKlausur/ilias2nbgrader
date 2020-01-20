@@ -1,5 +1,4 @@
 import os
-import glob
 from .preprocessor import Preprocessor
 from traitlets import Unicode
 from shutil import copytree

@@ -1,12 +1,7 @@
 import os
-import glob
 from .preprocessor import Preprocessor
-from traitlets import Unicode
-from shutil import copytree
 
 class ExtractAssignmentInfo(Preprocessor):
-
-    directory = Unicode('', help='Subfolder where processed files go')
     
     def __init__(self):
         super(ExtractAssignmentInfo, self).__init__()
