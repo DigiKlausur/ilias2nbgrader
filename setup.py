@@ -16,7 +16,8 @@ setup(
     packages=find_packages(exclude=('tests', 'docs')),
     install_requires=[
         "fuzzywuzzy",
-        "python-Levenshtein"
+        "python-Levenshtein",
+        "nbformat"
     ],
     include_package_data = True,
     zip_safe=False
