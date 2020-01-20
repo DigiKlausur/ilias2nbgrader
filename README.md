@@ -28,6 +28,7 @@ test_course
 To import the multi-submission archive (e.g. ```submission_assignment1.zip```) from ILIAS, you download it and execute the ```SubmissionConverter``` the following way:
 
 ```
+from ilias2nbgrader import SubmissionConverter
 converter = SubmissionConverter()
 resources = {
   'course_dir': 'test_course',                    # The path to the root dir of the course
@@ -69,6 +70,7 @@ To export feedback back to ILIAS, you need to download the empty multi_feedback 
 Then feedback can be exported the following way:
 
 ```
+from ilias2nbgrader import FeedbackConverter
 converter = FeedbackConverter()
 resources = {
   'course_dir': 'test_course',                      # The path to the root dir of the course
@@ -88,3 +90,19 @@ The feedback converter will go through the following stages:
 3. CopyFeedback - Copy over the html feedback files from Nbgrader
 4. ZipFeedback - Create the feedback archive to upload to ILIAS
 5. DeleteTempFolders - Delete all temporary folders
+
+## Creating custom converters
+
+In some cases you might want to disable some preprocessing steps or create your own custom pipeline for converting.
+This can be done the following way:
+
+```
+from ilias2nbgrader.converters import Converter
+from ilias2nbgrader.preprocessors import ExtractAssignmentInfo, Extract, \
+  CreateFolderStructure, MoveToSubmitted, DeleteTempFolders
+
+myconverter = Converter()
+myconverter.preprocessors = [ExtractAssignmentInfo, Extract, CreateFolderStructure, \
+                             MoveToSubmitted, DeleteTempFolders]
+myconverter.init_preprocessors()
+```
