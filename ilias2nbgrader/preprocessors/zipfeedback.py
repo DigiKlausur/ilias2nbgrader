@@ -17,7 +17,7 @@ class ZipFeedback(Preprocessor):
             for root, _, files in os.walk(self.src):
                 for file in files:
                     src = os.path.join(root, file)
-                    arcname = os.path.relpath(src, start=self.src)
+                    arcname = os.path.join(os.path.splitext(resources['feedback_zip'])[0], os.path.relpath(src, start=self.src))
                     zf.write(src, arcname)
 
 
