@@ -105,4 +105,8 @@ myconverter = Converter()
 myconverter.preprocessors = [ExtractAssignmentInfo, Extract, CreateFolderStructure, \
                              MoveToSubmitted, DeleteTempFolders]
 myconverter.init_preprocessors()
+
+resources = ...
+
+myconverter.convert(resources)
 ```
