@@ -12,10 +12,11 @@ class ExtractAssignmentInfo(Preprocessor):
         for root, _, files in os.walk(path):
             for file in files:
                 rel_path = os.path.relpath(os.path.join(root, file), start=path)
-                if rel_path.endswith('.ipynb'):
-                    nbs.append(rel_path)
-                else:
-                    other.append(rel_path)
+                if not '.ipynb_checkpoints' in rel_path:
+                    if rel_path.endswith('.ipynb'):
+                        nbs.append(rel_path)
+                    else:
+                        other.append(rel_path)
         return nbs, other
 
             
