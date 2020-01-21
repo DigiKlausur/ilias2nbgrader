@@ -112,6 +112,14 @@ class RestructureSubmission(Preprocessor):
             dst_file = os.path.join(dst_base, unused[file]['relative'])
             self.__mkdir(os.path.split(dst_file)[0])
             copyfile(src_file, dst_file)
+
+        # Copy everything if no notebook was found
+        if len(nbs) < 1:
+            for file in other:
+                src_file = os.path.join(src_base, file)
+                dst_file = os.path.join(dst_base, file)
+                self.__mkdir(os.path.split(dst_file)[0])
+                copyfile(src_file, dst_file)
             
         self.terminate_logging(os.path.join(self.dst, student, resources['assignment'], self.logname))           
         return student, resources
