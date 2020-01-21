@@ -1,7 +1,7 @@
 import os
 from .preprocessor import Preprocessor
 from traitlets import Unicode
-from shutil import copytree
+from distutils.dir_util import copy_tree as copytree
 
 class MoveToSubmitted(Preprocessor):
 
