@@ -2,6 +2,7 @@ import os
 from .preprocessor import Preprocessor
 from traitlets import Unicode
 from shutil import copytree
+import glob
 
 class CreateFolderStructure(Preprocessor):
 
