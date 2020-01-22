@@ -40,7 +40,6 @@ class RestructureSubmission(Preprocessor):
         return self.__get_pattern(filename).findall(source)
 
     def __find_files_in_notebook(self, nb_file, files):
-        nb_path = os.path.split(nb_file)[0]
         source = self.__get_source(nb_file)
         if source is None:
             return dict()
