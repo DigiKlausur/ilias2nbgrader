@@ -55,7 +55,6 @@ class RenameNotebooks(Preprocessor):
                     src = os.path.join(match[0], match[1])
                     dst = os.path.join(match[0], src_nb)
                     os.rename(src, dst)
-                    renamed = True
                     self.log.info('{}: Rename {} to {}'.format(student, match[1], src_nb)) 
                     
         self.terminate_logging(os.path.join(self.dst, student, resources['assignment'], self.logname)) 
