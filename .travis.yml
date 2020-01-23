@@ -9,6 +9,6 @@ python:
 sudo: false
 install:
   - pip install --upgrade setuptools pip
-  - pip install . test
+  - pip install .
 script:
   - python setup.py test
