@@ -1,10 +1,13 @@
 language: python
+dist: xenial
 python:
   - "3.4"
   - "3.5"
   - "3.6"
   - "3.7"
   - "3.8"
+sudo: false
 install:
-  - pip install .
+  - pip install --upgrade setuptools pip
+  - pip install . test
 script python setup.py test
