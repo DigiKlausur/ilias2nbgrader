@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/DigiKlausur/ilias2nbgrader.svg?branch=master)](https://travis-ci.org/DigiKlausur/ilias2nbgrader)
+
 # ilias2nbgrader
 Exchange between Ilias and Nbgrader
 
