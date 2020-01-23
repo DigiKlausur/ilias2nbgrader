@@ -1,7 +1,6 @@
 from fuzzywuzzy import fuzz
 from .preprocessor import Preprocessor
 import os
-import glob
 
 class RenameNotebooks(Preprocessor):
     

@@ -1,6 +1,7 @@
 import os
 import io
 import logging
+import glob
 from traitlets.config import LoggingConfigurable
 from traitlets import Unicode
 
