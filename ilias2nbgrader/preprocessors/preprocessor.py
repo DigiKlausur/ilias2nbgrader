@@ -34,5 +34,13 @@ class Preprocessor(LoggingConfigurable):
         return student, resources
         
     def preprocess(self, path, resources):
-        raise NotImplementedError('should be implemented by subclass')
-        return path, resources
+        self.src = path
+        self.dst = path
+        students = [os.path.split(g)[-1] for g in glob.glob(os.path.join(self.src, '*'))]
+        for student in students:
+            self.preprocess_student(student, resources)
+        if 'tmp_folders' not in resources:
+            resources['tmp_folders'] = set([self.dst])
+        else:
+            resources['tmp_folders'].add(self.dst)
+        return self.dst, resources

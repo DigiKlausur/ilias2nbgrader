@@ -28,18 +28,6 @@ class RenameNotebooks(Preprocessor):
         sims = list(map(lambda i: sims[i], best))
         return matches, sims 
     
-    def preprocess(self, path, resources):
-        self.src = path
-        self.dst = path
-        students = [os.path.split(g)[-1] for g in glob.glob(os.path.join(self.src, '*'))]
-        for student in students:
-            self.preprocess_student(student, resources)
-        if 'tmp_folders' not in resources:
-            resources['tmp_folders'] = set([self.dst])
-        else:
-            resources['tmp_folders'].add(self.dst)
-        return self.dst, resources
-    
     def preprocess_student(self, student, resources):
         self.init_logging('Rename Notebooks')
         src_nbs = resources['source_notebooks']
