@@ -1,6 +1,6 @@
 import unittest
 import sys
-from ...preprocessors import ExtractAssignmentInfo
+from ilias2nbgrader.preprocessors import ExtractAssignmentInfo
 
 class TestExtractAssignmentInfo(unittest.TestCase):
 
