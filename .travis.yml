@@ -10,5 +10,10 @@ sudo: false
 install:
   - pip install --upgrade setuptools pip
   - pip install .
+addons:
+  sonarcloud:
+    organization: "digiklausur"
+    token:
+      secure: "eZU8vx0pfSppjSArIT7mUMxtfgFGn/VSMCjXzbYUG+BZ0vcAHDt7K2m0rh/152ytyUSilcVCBnXwY4LDqXQds1Jreim+X90O/35/+bbZEndQMEdYHKSTR6Ws81BKZabPFUFSszDjZwTSMxkuWQyvSTKxyLTRaFaZIiGP9uMlLP8wa9AuoJLozNfiL01w2xGao/H3od5aln/ccVWUq7AX5JVUro1KEwBFuMc7paPQ5xDPPckCyxcx23hdn5BcZGoaaR7IG8YOCLwgRCBcMpyqJxL8RoCAPkuLaqZ6mRvcI+QfBDjheSeGItnCDHxC8D/D2uupdubTpBhnqGiQd8ttN6ooZqDiLBkSy9qJjyH4nuIwEHwVs2HZHe22Tmk2RSWdRWyxJ+yfEQLMAYIdiMRfmjb8AbKCvHFNEJ/3bIKMZOJySAR6Y+KRGtNQUGrd1iNG7bi7lrOvR5SKWejs0gAuy0UuBFkKpnzIwNRmLXiillMTERePOD7K4F0UhaIPCmnlzr1cL97MtfwNRiXbGys7gw5rQEpeBOv3FoHXJSPUizdyR/QSgckm92kOXHTUFj8Ein/ahzpDvi2M7991LR4Ntk6yIl2feoxt0XSBmMA/NrQjI2BBE9sj9QfDK6dP+ayUDzzLjRNPhJFM5Memgn2A66p2Xe/NNEedD6zDj02CdQw="
 script:
   - python setup.py test
