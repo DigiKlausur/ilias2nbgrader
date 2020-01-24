@@ -10,6 +10,7 @@ class TestsBase(unittest.TestCase):
         self.course_dir = os.path.join(self.file_path, 'test_course')
         self.assignment = 'assignment_one'
         self.tmp_path = 'tmp'
+        self.students = ['student1', 'student2', 'student3', 'student4']
         
         self.resources = {
             'course_dir': self.course_dir,
