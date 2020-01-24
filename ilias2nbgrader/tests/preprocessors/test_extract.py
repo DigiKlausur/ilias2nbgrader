@@ -1,9 +1,9 @@
 import unittest
-import sys
 import os
 from shutil import rmtree
-from ilias2nbgrader.preprocessors import Extract
 from .base import TestsBase
+from ilias2nbgrader.preprocessors import Extract
+
 
 class TestExtract(TestsBase):
 
@@ -13,7 +13,7 @@ class TestExtract(TestsBase):
 
 
         assert os.path.exists(os.path.join(self.tmp_path, preprocessor.extract_path))
-        for student in ['student1', 'student2', 'student3', 'student4']:
+        for student in self.students:
             assert os.path.exists(os.path.join(self.tmp_path, preprocessor.extract_path, student))
 
     def test_tmp_folders(self):
