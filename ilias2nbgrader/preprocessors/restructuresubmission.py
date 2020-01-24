@@ -2,12 +2,15 @@ import glob
 import os
 import re
 import nbformat
+from traitlets import Unicode
 from nbformat.reader import NotJSONError
 from shutil import copyfile
 from .preprocessor import Preprocessor
 
 
-class RestructureSubmission(Preprocessor):    
+class RestructureSubmission(Preprocessor):
+
+    directory = Unicode('adapted', help='Subfolder where processed files go') 
     
     def __init__(self):
         super(RestructureSubmission, self).__init__()
@@ -63,7 +66,7 @@ class RestructureSubmission(Preprocessor):
 
     def preprocess(self, path, resources):
         self.src = path
-        self.dst = os.path.join(resources['path'], 'adapted')
+        self.dst = os.path.join(resources['path'], self.directory)
         students = [os.path.split(g)[-1] for g in glob.glob(os.path.join(self.src, '*'))]
         for student in students:
             self.preprocess_student(student, resources)
@@ -72,6 +75,28 @@ class RestructureSubmission(Preprocessor):
         else:
             resources['tmp_folders'].add(self.dst)
         return self.dst, resources
+
+    def copyfinds(self, nb, src_base, dst_base, other, unused={}):
+        nb_path = os.path.join(src_base, nb)
+        finds = self.__find_files_in_notebook(nb_path, other)
+        # Copy notebook
+        copyfile(nb_path, os.path.join(dst_base, nb))
+
+        for find in finds:
+            src_file = os.path.join(src_base, find)
+            if finds[find]['present']:
+                if find in unused:
+                    del unused[find]
+                # Copy used file                    
+                dst_file = os.path.join(dst_base, finds[find]['relative'])
+                self.__mkdir(os.path.split(dst_file)[0])        
+                copyfile(src_file, dst_file)
+                
+                if os.path.normpath(find) != os.path.normpath(finds[find]['relative']):
+                    self.log.info('Moved {} to {}'.format(find, finds[find]['relative']))
+            else:
+                unused[find] = finds[find]
+        return unused
     
     def preprocess_student(self, student, resources):
         self.init_logging('Restructure Submission')
@@ -85,25 +110,7 @@ class RestructureSubmission(Preprocessor):
         nbs, other = self.__get_files(src_base)
 
         for nb in nbs:
-            nb_path = os.path.join(src_base, nb)
-            finds = self.__find_files_in_notebook(nb_path, other)
-            # Copy notebook
-            copyfile(nb_path, os.path.join(dst_base, nb))
-
-            for find in finds:
-                src_file = os.path.join(src_base, find)
-                if finds[find]['present']:
-                    if find in unused:
-                        del unused[find]
-                    # Copy used file                    
-                    dst_file = os.path.join(dst_base, finds[find]['relative'])
-                    self.__mkdir(os.path.split(dst_file)[0])        
-                    copyfile(src_file, dst_file)
-                    
-                    if os.path.normpath(find) != os.path.normpath(finds[find]['relative']):
-                        self.log.info('Moved {} to {}'.format(find, finds[find]['relative']))
-                else:
-                    unused[find] = finds[find]
+            unused = self.copyfinds(nb, src_base, dst_base, other, unused)
 
         # Copy unused files                    
         for file in unused:
