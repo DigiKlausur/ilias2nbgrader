@@ -6,7 +6,7 @@ with open('README.md') as f:
 
 setup(
     name='ilias2nbgrader',
-    version='0.2',
+    version='0.3',
     license='MIT',
     description='Exchange submissions and feedbacks between ILIAS and nbgrader',
     long_description=readme,
