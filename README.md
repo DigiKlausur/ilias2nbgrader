@@ -5,6 +5,12 @@
 # ilias2nbgrader
 Exchange between Ilias and Nbgrader
 
+## Installation
+
+Install via:
+
+```pip install ilias2nbgrader```
+
 ## What does this tool do?
 
 This tool provides functionality to import submissions from ILIAS to Nbgrader and to extract feedback from Nbgrader to ILIAS. This tool needs the following feature (available from ILIAS version 4.4):
