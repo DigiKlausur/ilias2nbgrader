@@ -13,8 +13,7 @@ class TestExtractFeedback(TestsBase):
     def test_process_student(self):
         path, resources = ExtractFeedback().preprocess(self.tmp_path, self.resources)
         assert os.path.exists(self.tmp_path)
-        print(path)
-
+        
         for student in self.students:
             assert os.path.exists(os.path.join(path, student))
         assert os.path.exists(os.path.join(path, 'student5'))      
