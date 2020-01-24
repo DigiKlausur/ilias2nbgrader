@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/DigiKlausur/ilias2nbgrader.svg?branch=master)](https://travis-ci.org/DigiKlausur/ilias2nbgrader)
 [![Sonar Status](https://sonarcloud.io/api/project_badges/measure?project=DigiKlausur_ilias2nbgrader&metric=alert_status)](https://sonarcloud.io/dashboard?id=DigiKlausur_ilias2nbgrader)
+[![Sonar Coverage](https://sonarcloud.io/api/project_badges/measure?project=DigiKlausur_ilias2nbgrader&metric=coverage)](https://sonarcloud.io/dashboard?id=DigiKlausur_ilias2nbgrader)
 
 # ilias2nbgrader
 Exchange between Ilias and Nbgrader
