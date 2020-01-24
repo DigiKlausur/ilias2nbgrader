@@ -4,13 +4,13 @@ from setuptools import setup, find_packages
 with open('README.md') as f:
     readme = f.read()
 
-with open('LICENSE') as f:
-    license = f.read()
-
 setup(
     name='ilias2nbgrader',
-    version='0.1',
+    version='0.2',
+    license='MIT',
     description='Exchange submissions and feedbacks between ILIAS and nbgrader',
+    long_description=readme,
+    long_description_content_type="text/markdown",
     author='Tim Metzler',
     author_email='tim.metzler@h-brs.de',
     packages=find_packages(exclude=('tests', 'docs')),
@@ -21,6 +21,6 @@ setup(
     ],
     include_package_data = True,
     zip_safe=False,
-    test_suite='nose.collector',
-    tests_require=['nose']
+    test_suite='tests',
+    tests_require=['pytest-cov']
 )
