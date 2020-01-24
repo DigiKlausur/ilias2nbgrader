@@ -1,7 +1,7 @@
 import os
 from .preprocessor import Preprocessor
 from traitlets import Unicode
-from distutils.dir_util import copy_tree as copytree
+from shutil import copytree
 
 class MoveToSubmitted(Preprocessor):
 
@@ -13,5 +13,6 @@ class MoveToSubmitted(Preprocessor):
     def preprocess(self, path, resources):
         self.src = path
         self.dst = os.path.join(resources['course_dir'], self.directory)
+        os.makedirs(self.directory, exist_ok=True)
         copytree(self.src, self.dst)
         return self.dst, resources
