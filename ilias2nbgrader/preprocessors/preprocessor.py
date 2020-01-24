@@ -31,7 +31,6 @@ class Preprocessor(LoggingConfigurable):
                 f_log.write(self.log_buff.getvalue()) 
     
     def preprocess_student(self, student, resources):
-        raise NotImplementedError('should be implemented by subclass')
         return student, resources
         
     def preprocess(self, path, resources):
