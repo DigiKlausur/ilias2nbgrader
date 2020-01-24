@@ -30,8 +30,5 @@ class TestAddExtraFiles(TestsBase):
         if os.path.exists(self.tmp_path):
             rmtree(self.tmp_path)
 
-
 if __name__ == '__main__':
     unittest.main()
-
-

@@ -21,6 +21,4 @@ class TestCreateFolderStructure(TestsBase):
         rmtree(self.tmp_path)
 
 if __name__ == '__main__':
-    unittest.main()
-
-
+    unittest.main
