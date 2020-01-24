@@ -3,10 +3,7 @@ from shutil import rmtree
 import os
 
 class DeleteTempFolders(Preprocessor):
-    
-    def __init__(self):
-        pass
-    
+       
     def preprocess(self, path, resources):
         if 'tmp_folders' in resources:
             removed = set()
