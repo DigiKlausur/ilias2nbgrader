@@ -16,5 +16,6 @@ class TestsBase(unittest.TestCase):
             'course_dir': self.course_dir,
             'assignment': self.assignment,
             'path': self.tmp_path,
-            'submission_zip': os.path.join(self.file_path, 'submissions.zip')
+            'submission_zip': os.path.join(self.file_path, 'submissions.zip'),
+            'feedback_zip': os.path.join(self.file_path, 'multi_feedback.zip')
         }
