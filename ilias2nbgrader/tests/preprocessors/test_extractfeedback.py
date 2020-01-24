@@ -4,7 +4,7 @@ from shutil import rmtree
 from .base import TestsBase
 from ilias2nbgrader.preprocessors import ExtractFeedback
 
-class TestPreprocessor(TestsBase):
+class TestExtractFeedback(TestsBase):
 
     def setUp(self):
         super().setUp()
