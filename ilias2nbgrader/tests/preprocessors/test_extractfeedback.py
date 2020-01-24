@@ -10,10 +10,10 @@ class TestExtractFeedback(TestsBase):
         super().setUp()
         self.resources['course_dir'] = os.path.join(self.file_path, 'feedback_course')
 
-    def test_process_student(self):
+    def test_extract_feedback(self):
         path, resources = ExtractFeedback().preprocess(self.tmp_path, self.resources)
         assert os.path.exists(self.tmp_path)
-        
+
         for student in self.students:
             assert os.path.exists(os.path.join(path, student))
         assert os.path.exists(os.path.join(path, 'student5'))      

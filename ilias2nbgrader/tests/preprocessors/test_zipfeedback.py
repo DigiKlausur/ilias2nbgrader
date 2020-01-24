@@ -10,7 +10,7 @@ class TestZipFeedback(TestsBase):
         super().setUp()
         self.resources['course_dir'] = os.path.join(self.file_path, 'feedback_course')
 
-    def test_process_student(self):
+    def test_zip_feedback(self):
         path, resources = ExtractAssignmentInfo().preprocess(self.tmp_path, self.resources)
         path, resources = ExtractFeedback().preprocess(path, resources)
         path, resources = CopyFeedback().preprocess(path, resources)
