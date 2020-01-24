@@ -1,3 +1,4 @@
+from .preprocessor import Preprocessor
 from .extract import Extract
 from .createfolderstructure import CreateFolderStructure
 from .renamenotebooks import RenameNotebooks
