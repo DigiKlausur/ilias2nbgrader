@@ -110,7 +110,6 @@ class RestructureSubmission(Preprocessor):
         nbs, other = self.__get_files(src_base)
 
         for nb in nbs:
-            nb_path = os.path.join(src_base, nb)
             unused = self.copyfinds(nb, src_base, dst_base, other, unused)
 
         # Copy unused files                    
