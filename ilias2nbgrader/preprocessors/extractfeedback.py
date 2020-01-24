@@ -19,4 +19,4 @@ class ExtractFeedback(Preprocessor):
             resources['tmp_folders'] = set([dst])
         else:
             resources['tmp_folders'].add(dst)
-        return os.path.join(dst, os.path.splitext(file)[0]), resources
+        return os.path.join(dst, os.path.splitext(os.path.split(file)[-1])[0]), resources
