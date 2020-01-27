@@ -8,7 +8,7 @@ setup(
     name='ilias2nbgrader',
     version='0.3',
     license='MIT',
-    url='https://github.com/DigiKlausur/ilias2nbgrader'
+    url='https://github.com/DigiKlausur/ilias2nbgrader',
     description='Exchange submissions and feedbacks between ILIAS and nbgrader',
     long_description=readme,
     long_description_content_type="text/markdown",
