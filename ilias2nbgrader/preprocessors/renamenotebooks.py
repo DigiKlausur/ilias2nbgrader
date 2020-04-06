@@ -21,7 +21,7 @@ class RenameNotebooks(Preprocessor):
     
     def get_matches(self, file, files):
         matches = [f for f in files if f[-1] == 'ipynb']
-        sims = [fuzz.ratio(file, m[1]) for m in matches]
+        sims = [fuzz.ratio(file[0], m[1]) for m in matches]
         best = sorted(range(len(sims)), key=sims[::-1].__getitem__)
         matches = list(map(lambda i: matches[i], best))
         sims = list(map(lambda i: sims[i], best))
