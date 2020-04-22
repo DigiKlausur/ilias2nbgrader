@@ -17,7 +17,7 @@ class MoveToSubmitted(Preprocessor):
                 os.makedirs(os.path.join(dst, dst_root), exist_ok=True)
                 copy(os.path.join(root, file), os.path.join(dst, dst_root, file))
             for d in dirs:
-                os.makedirs(os.path.join(dst, root, d), exist_ok=True)
+                os.makedirs(os.path.join(dst, dst_root, d), exist_ok=True)
             
     def preprocess(self, path, resources):
         self.src = path
