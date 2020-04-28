@@ -64,18 +64,6 @@ class RestructureSubmission(Preprocessor):
         if not os.path.exists(path):
             os.makedirs(path)
 
-    def preprocess(self, path, resources):
-        self.src = path
-        self.dst = os.path.join(resources['path'], self.directory)
-        students = [os.path.split(g)[-1] for g in glob.glob(os.path.join(self.src, '*'))]
-        for student in students:
-            self.preprocess_student(student, resources)
-        if 'tmp_folders' not in resources:
-            resources['tmp_folders'] = set([self.dst])
-        else:
-            resources['tmp_folders'].add(self.dst)
-        return self.dst, resources
-
     def copyfinds(self, nb, src_base, dst_base, other, unused={}):
         nb_path = os.path.join(src_base, nb)
         finds = self.__find_files_in_notebook(nb_path, other)
