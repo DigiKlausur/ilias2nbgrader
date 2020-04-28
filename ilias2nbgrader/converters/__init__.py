@@ -1,3 +1,5 @@
 from .converter import Converter
 from .submissionconverter import SubmissionConverter
 from .feedbackconverter import FeedbackConverter
+from .groupsubmissionconverter import GroupSubmissionConverter
+from .groupfeedbackconverter import GroupFeedbackConverter
