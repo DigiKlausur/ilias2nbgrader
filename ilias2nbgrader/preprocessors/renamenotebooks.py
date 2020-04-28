@@ -25,7 +25,11 @@ class RenameNotebooks(Preprocessor):
         best = sorted(range(len(sims)), key=sims[::-1].__getitem__)
         matches = list(map(lambda i: matches[i], best))
         sims = list(map(lambda i: sims[i], best))
-        return matches, sims 
+        return matches, sims
+
+    def preprocess(self, path, resources):
+        self.dst = path
+        super().preprocess(path, resources)
     
     def preprocess_student(self, student, resources):
         self.init_logging('Rename Notebooks')
