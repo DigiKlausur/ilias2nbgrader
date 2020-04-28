@@ -1,6 +1,5 @@
 from traitlets.config import LoggingConfigurable, Config
 from traitlets import List, Unicode
-from traitlets.utils.importstring import import_item
 from .converter import Converter
 from ..preprocessors import *
 
