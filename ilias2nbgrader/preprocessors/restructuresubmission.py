@@ -64,7 +64,9 @@ class RestructureSubmission(Preprocessor):
         if not os.path.exists(path):
             os.makedirs(path)
 
-    def copyfinds(self, nb, src_base, dst_base, other, unused={}):
+    def copyfinds(self, nb, src_base, dst_base, other, unused=None):
+        if not unused:
+            unused = dict()
         nb_path = os.path.join(src_base, nb)
         finds = self.__find_files_in_notebook(nb_path, other)
         # Copy notebook
