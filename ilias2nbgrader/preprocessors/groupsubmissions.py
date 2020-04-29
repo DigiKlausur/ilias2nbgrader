@@ -29,6 +29,8 @@ class GroupSubmissions(Preprocessor):
                 nb = nbformat.read(nb_file, self.__as_version)
                 group_cell = nb.cells[resources['group_cell']].source
                 groups[student] = self.__p_student.findall(group_cell)
+                if len(groups[student]) < 1:
+                    groups[student] = [student]
             except NotJSONError:
                 self.log.warning('Notebook {} is not JSON'.format(nb_file))
                 groups[student] = [student]
