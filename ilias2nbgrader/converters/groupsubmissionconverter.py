@@ -3,7 +3,7 @@ from traitlets import List, Unicode
 from .converter import Converter
 from ..preprocessors import *
 
-class SubmissionConverter(Converter):
+class GroupSubmissionConverter(Converter):
     
     preprocessors = List([
         ExtractAssignmentInfo,
@@ -12,9 +12,11 @@ class SubmissionConverter(Converter):
         RenameNotebooks,
         AddExtraFiles,
         RestructureSubmission,
+        RenameSubmission,
+        GroupSubmissions,
         MoveToSubmitted,
         DeleteTempFolders
     ], help='List of preprocessors for the converter')
     
     def __init__(self, config=None):
-        super(SubmissionConverter, self).__init__(config=config)
+        super(GroupSubmissionConverter, self).__init__(config=config)

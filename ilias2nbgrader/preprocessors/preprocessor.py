@@ -7,8 +7,7 @@ from traitlets import Unicode
 
 class Preprocessor(LoggingConfigurable):
     
-    src = Unicode('', help='Source path to read from')
-    dst = Unicode('', help='Destination path to write to')
+    directory = Unicode('', help='Destiantion path to write to')
     logname = Unicode('converter.log', help='Name of the logfile')
     
     def __init__(self):
@@ -36,6 +35,8 @@ class Preprocessor(LoggingConfigurable):
     def preprocess(self, path, resources):
         self.src = path
         self.dst = path
+        if self.directory:
+            self.dst = os.path.join(resources['path'], self.directory)
         students = [os.path.split(g)[-1] for g in glob.glob(os.path.join(self.src, '*'))]
         for student in students:
             self.preprocess_student(student, resources)
