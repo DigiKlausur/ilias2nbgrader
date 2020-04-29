@@ -6,7 +6,7 @@ with open('README.md') as f:
 
 setup(
     name='ilias2nbgrader',
-    version='0.4.1',
+    version='0.4.2',
     license='MIT',
     url='https://github.com/DigiKlausur/ilias2nbgrader',
     description='Exchange submissions and feedbacks between ILIAS and nbgrader',
