@@ -30,10 +30,10 @@ class GroupSubmissions(Preprocessor):
                 group_cell = nb.cells[resources['group_cell']].source
                 groups[student] = self.__p_student.findall(group_cell)
             except NotJSONError:
-                print('Notebook {} is not JSON'.format(nb_file))
+                self.log.warning('Notebook {} is not JSON'.format(nb_file))
                 groups[student] = [student]
             except FileNotFoundError:
-                print('No notebook for {}'.format(student))
+                self.log.warning('No notebook for {}'.format(student))
                 groups[student] = [student]
         return set([tuple(sorted(v)) for v in groups.values()])
     
