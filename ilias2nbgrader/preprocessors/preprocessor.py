@@ -7,7 +7,7 @@ from traitlets import Unicode
 
 class Preprocessor(LoggingConfigurable):
     
-    directory = Unicode('', help='Destiantion path to write to')
+    directory = Unicode('', help='Destination path to write to')
     logname = Unicode('converter.log', help='Name of the logfile')
     
     def __init__(self):
