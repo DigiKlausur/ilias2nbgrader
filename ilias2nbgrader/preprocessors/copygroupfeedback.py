@@ -36,10 +36,11 @@ class CopyGroupFeedback(Preprocessor):
         
         return self.dst, resources
     
-    def preprocess_student(self, student, groups, resources):        
-        uid = self.__p_student.findall(student)[0]
-        if not uid in groups:
+    def preprocess_student(self, student, groups, resources):
+        matches = self.__p_student.findall(student)
+        if len(matches) < 1 or matches[0] not in groups:
             return student, resources
+        uid = matches[0]
         
         src_base = os.path.join(self.src, groups[uid], resources['assignment'])           
         dst_base = os.path.join(self.dst, student)   
