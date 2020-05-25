@@ -9,6 +9,7 @@ class GroupSubmissionConverter(Converter):
         ExtractAssignmentInfo,
         Extract,
         CreateFolderStructure,
+        ExtractSingleSubmission,
         RenameNotebooks,
         AddExtraFiles,
         RestructureSubmission,
