@@ -14,7 +14,7 @@ class ExtractSingleSubmission(Preprocessor):
         super(ExtractSingleSubmission, self).__init__()
 
     def strip_prefix(self, zipinfo):
-        prefix = os.path.commonprefix([info.filename for info in zipinfo if not info.is_dir()])
+        prefix = os.path.commonprefix([os.path.split(info.filename)[0] for info in zipinfo if not info.is_dir()])
         for info in zipinfo:
             info.filename = os.path.relpath(info.filename, prefix)
         return zipinfo
@@ -23,6 +23,7 @@ class ExtractSingleSubmission(Preprocessor):
         self.init_logging('Unzip Submission')
         src = os.path.join(self.src, student)
         dst = os.path.join(self.dst, student)
+
         # Check if submission is a single archive
         zips = []
         other = []
@@ -43,6 +44,6 @@ class ExtractSingleSubmission(Preprocessor):
         else:
             movefiles(src, dst)
 
-        self.terminate_logging(os.path.join(self.dst, student, self.logname))
+        self.terminate_logging(os.path.join(dst, self.logname))
 
         return student, resources
