@@ -1,7 +1,7 @@
 import os
 from .preprocessor import Preprocessor
 from traitlets import Unicode
-from ..utils import copyfiles
+from ..utils import movefiles
 
 class MoveToSubmitted(Preprocessor):
 
@@ -16,5 +16,5 @@ class MoveToSubmitted(Preprocessor):
         
         os.makedirs(self.dst, exist_ok=True)       
 
-        copyfiles(self.src, self.dst)
+        movefiles(self.src, self.dst)
         return self.dst, resources

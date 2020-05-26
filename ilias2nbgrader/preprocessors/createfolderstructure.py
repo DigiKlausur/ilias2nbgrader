@@ -1,7 +1,7 @@
 import os
 from .preprocessor import Preprocessor
 from traitlets import Unicode
-from shutil import copytree
+from shutil import move
 import glob
 
 class CreateFolderStructure(Preprocessor):
@@ -22,7 +22,7 @@ class CreateFolderStructure(Preprocessor):
         dst = os.path.join(self.dst, student, resources['assignment'])
         
         self.mkdir(os.path.join(self.dst, student))        
-        copytree(src, dst)
+        move(src, dst)
         self.log.info('Moved submission to subfolder {}'.format(resources['assignment']))
         
         self.terminate_logging(os.path.join(self.dst, student, resources['assignment'], self.logname)) 

@@ -1,5 +1,5 @@
 from .preprocessor import Preprocessor
-from ..utils import copyfiles
+from ..utils import movefiles
 from traitlets import Unicode
 from nbformat.reader import NotJSONError
 import os
@@ -69,7 +69,7 @@ class GroupSubmissions(Preprocessor):
             leader = self.get_submissions(group, resources)
             src = os.path.join(self.src, leader)
             dst = os.path.join(self.dst, group_name)
-            copyfiles(src, dst)
+            movefiles(src, dst)
             if len(group) > 1:
                 self.log.info('Grouped students {}'.format(group))
             self.terminate_logging(os.path.join(self.dst, group_name, resources['assignment'], self.logname))

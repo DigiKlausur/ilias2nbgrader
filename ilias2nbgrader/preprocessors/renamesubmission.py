@@ -1,5 +1,5 @@
 from .preprocessor import Preprocessor
-from ..utils import copyfiles
+from ..utils import movefiles
 from traitlets import Unicode
 import os
 import re
@@ -20,5 +20,5 @@ class RenameSubmission(Preprocessor):
         dst = os.path.join(self.dst, uid)
         if src != dst:
             self.log.info('Rename {} to {}'.format(student, uid))
-        copyfiles(src, dst)
+        movefiles(src, dst)
         self.terminate_logging(os.path.join(self.dst, uid, resources['assignment'], self.logname))
