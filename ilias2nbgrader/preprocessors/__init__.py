@@ -7,6 +7,7 @@ from .deletetempfolders import DeleteTempFolders
 from .extract import Extract
 from .extractassignmentinfo import ExtractAssignmentInfo
 from .extractfeedback import ExtractFeedback
+from .extractsinglesubmission import ExtractSingleSubmission
 from .groupsubmissions import GroupSubmissions
 from .movetosubmitted import MoveToSubmitted
 from .renamenotebooks import RenameNotebooks
