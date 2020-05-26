@@ -8,8 +8,8 @@ class GroupSubmissionConverter(Converter):
     preprocessors = List([
         ExtractAssignmentInfo,
         Extract,
-        CreateFolderStructure,
         ExtractSingleSubmission,
+        CreateFolderStructure,
         RenameNotebooks,
         AddExtraFiles,
         RestructureSubmission,
