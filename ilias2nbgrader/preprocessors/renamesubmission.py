@@ -15,7 +15,12 @@ class RenameSubmission(Preprocessor):
     
     def preprocess_student(self, student, resources):
         self.init_logging('Rename Submission')
-        uid = self.__p_student.findall(student)[0]
+        matches = self.__p_student.findall(student)
+        if len(matches) > 0:
+            uid = matches[0]
+        else:
+            uid = student
+            self.log.info('No valid LMS id found for student {}'.format(student))
         src = os.path.join(self.src, student)
         dst = os.path.join(self.dst, uid)
         if src != dst:
