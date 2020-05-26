@@ -14,7 +14,7 @@ class ExtractSingleSubmission(Preprocessor):
         super(ExtractSingleSubmission, self).__init__()
 
     def strip_prefix(self, zipinfo):
-        prefix = os.path.commonprefix([os.path.split(info.filename)[0] for info in zipinfo if not info.is_dir()])
+        prefix = os.path.commonprefix([os.path.split(info.filename)[0] for info in zipinfo])
         for info in zipinfo:
             info.filename = os.path.relpath(info.filename, prefix)
         return zipinfo
@@ -38,7 +38,8 @@ class ExtractSingleSubmission(Preprocessor):
             # Only archives or no files found
             for archive in zips:
                 with zipfile.ZipFile(archive, 'r') as zip_ref:
-                    zipinfo = self.strip_prefix([info for info in zip_ref.infolist() if not info.is_dir()])
+                    zipinfo = self.strip_prefix([info for info in zip_ref.infolist() \
+                        if not info.filename.endswith(os.path.sep)])
                     zip_ref.extractall(dst, members=zipinfo)
                 self.log.info('{}: Extract zip {}'.format(student, file))
         else:
